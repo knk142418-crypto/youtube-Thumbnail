@@ -1,9 +1,9 @@
 /**
- * YouTube Script Wizard
- * AI 기반 유튜브 스크립트 자동화
+ * 스크립트 마법사
+ * 유튜브 영상 스크립트 자동 생성 도구
  */
 
-// DOM 요소
+// 페이지 요소
 const topicInput = document.getElementById('topic-input');
 const generateBtn = document.getElementById('generate-btn');
 const quickTags = document.querySelectorAll('.tag');
@@ -16,16 +16,16 @@ function updateProgress(stepIndex) {
     });
 }
 
-// 입력 유효성 검사
+// 입력 확인
 function validateInput() {
     const topic = topicInput.value.trim();
     return topic.length > 0;
 }
 
-// 생성 버튼 클릭 처리
+// 만들기 버튼 처리
 function handleGenerate() {
     if (!validateInput()) {
-        // 입력창 흔들기 효과
+        // 입력창 흔들기
         topicInput.parentElement.style.animation = 'shake 0.5s ease';
         setTimeout(() => {
             topicInput.parentElement.style.animation = '';
@@ -39,7 +39,7 @@ function handleGenerate() {
     // 로딩 상태
     generateBtn.disabled = true;
     generateBtn.innerHTML = `
-        <span class="btn-text">생성 중...</span>
+        <span class="btn-text">작성 중...</span>
         <div class="btn-icon" style="animation: spin 1s linear infinite;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" stroke-dasharray="30 70"/>
@@ -47,10 +47,10 @@ function handleGenerate() {
         </div>
     `;
 
-    // 진행 단계 업데이트
+    // 단계 업데이트
     updateProgress(1);
 
-    // 시뮬레이션 (실제로는 API 호출)
+    // 데모용 시뮬레이션
     setTimeout(() => {
         updateProgress(2);
 
@@ -58,7 +58,7 @@ function handleGenerate() {
             updateProgress(3);
             generateBtn.disabled = false;
             generateBtn.innerHTML = `
-                <span class="btn-text">생성하기</span>
+                <span class="btn-text">만들기</span>
                 <div class="btn-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14"/>
@@ -67,8 +67,8 @@ function handleGenerate() {
                 </div>
             `;
 
-            // 성공 알림
-            showNotification(`"${topic}" 스크립트가 생성되었습니다!`);
+            // 완료 알림
+            showNotification(`"${topic}" 스크립트가 완성되었습니다!`);
         }, 1500);
     }, 1500);
 }
@@ -81,7 +81,7 @@ function showNotification(message) {
         existingNotification.remove();
     }
 
-    // 새 알림 생성
+    // 새 알림
     const notification = document.createElement('div');
     notification.className = 'notification';
     notification.innerHTML = `
@@ -94,22 +94,22 @@ function showNotification(message) {
         </div>
     `;
 
-    // 스타일 추가
+    // 스타일
     notification.style.cssText = `
         position: fixed;
         top: 24px;
         right: 24px;
         padding: 16px 24px;
-        background: rgba(16, 185, 129, 0.9);
+        background: rgba(16, 185, 129, 0.95);
         border-radius: 12px;
         color: white;
         font-weight: 500;
         z-index: 1000;
         animation: slideIn 0.3s ease;
         backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
     `;
 
-    // 알림 내용 스타일
     const content = notification.querySelector('.notification-content');
     content.style.cssText = `
         display: flex;
@@ -129,20 +129,20 @@ function showNotification(message) {
     }, 3000);
 }
 
-// 빠른 태그 클릭 처리
+// 빠른 태그 클릭
 quickTags.forEach(tag => {
     tag.addEventListener('click', () => {
         const topic = tag.dataset.topic;
         topicInput.value = topic;
         topicInput.focus();
 
-        // 태그 선택 효과
+        // 선택 효과
         quickTags.forEach(t => t.style.background = '');
-        tag.style.background = 'rgba(255, 59, 59, 0.2)';
+        tag.style.background = 'rgba(255, 59, 59, 0.15)';
     });
 });
 
-// 이벤트 리스너
+// 이벤트 등록
 generateBtn.addEventListener('click', handleGenerate);
 
 topicInput.addEventListener('keypress', (e) => {
@@ -151,22 +151,22 @@ topicInput.addEventListener('keypress', (e) => {
     }
 });
 
-// 입력 시 진행 단계 초기화
+// 입력 시 단계 초기화
 topicInput.addEventListener('input', () => {
     if (topicInput.value.trim().length > 0) {
         updateProgress(0);
     }
 });
 
-// 애니메이션 스타일 추가
+// 애니메이션 스타일
 const style = document.createElement('style');
 style.textContent = `
     @keyframes shake {
         0%, 100% { transform: translateX(0); }
-        20% { transform: translateX(-10px); }
-        40% { transform: translateX(10px); }
-        60% { transform: translateX(-10px); }
-        80% { transform: translateX(10px); }
+        20% { transform: translateX(-8px); }
+        40% { transform: translateX(8px); }
+        60% { transform: translateX(-8px); }
+        80% { transform: translateX(8px); }
     }
     
     @keyframes spin {
@@ -177,7 +177,7 @@ style.textContent = `
     @keyframes slideIn {
         from { 
             opacity: 0; 
-            transform: translateX(100px); 
+            transform: translateX(80px); 
         }
         to { 
             opacity: 1; 
@@ -192,13 +192,13 @@ style.textContent = `
         }
         to { 
             opacity: 0; 
-            transform: translateX(100px); 
+            transform: translateX(80px); 
         }
     }
 `;
 document.head.appendChild(style);
 
-// 페이지 로드 시 포커스
+// 페이지 로드 시 입력창 포커스
 window.addEventListener('load', () => {
     setTimeout(() => topicInput.focus(), 100);
 });

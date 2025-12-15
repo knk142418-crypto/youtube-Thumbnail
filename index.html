@@ -4,12 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI 기반 유튜브 스크립트 자동화 - 손쉽게 영상 스크립트를 생성하세요">
-    <title>YouTube Script Wizard | AI 스크립트 자동화</title>
+
+    <!-- SEO 메타 태그 -->
+    <title>유튜브 스크립트 마법사 | 영상 스크립트 자동 생성</title>
+    <meta name="description" content="유튜브 영상 스크립트를 자동으로 생성하세요. 주제만 입력하면 몇 초 만에 완벽한 스크립트가 완성됩니다. 무료 스크립트 생성기.">
+    <meta name="keywords" content="유튜브 스크립트, 영상 스크립트 생성, 유튜브 대본, 스크립트 자동화, 유튜브 자동화, 영상 대본 작성">
+    <meta name="author" content="스크립트 마법사">
+    <meta name="robots" content="index, follow">
+
+    <!-- 오픈그래프 (소셜 미디어 공유용) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="유튜브 스크립트 마법사 | 영상 스크립트 자동 생성">
+    <meta property="og:description" content="주제만 입력하면 몇 초 만에 완벽한 영상 스크립트가 완성됩니다. 지금 무료로 시작하세요!">
+    <meta property="og:image" content="images/og-image.png">
+    <meta property="og:url" content="https://youtube-script-wizard.com">
+    <meta property="og:site_name" content="스크립트 마법사">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- 트위터 카드 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="유튜브 스크립트 마법사">
+    <meta name="twitter:description" content="주제만 입력하면 몇 초 만에 완벽한 영상 스크립트가 완성됩니다.">
+    <meta name="twitter:image" content="images/og-image.png">
+
+    <!-- 네이버 웹마스터 도구 (추후 인증 코드 추가) -->
+    <!-- <meta name="naver-site-verification" content="인증코드"> -->
+
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-256.png">
+
+    <!-- 구조화된 데이터 (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "유튜브 스크립트 마법사",
+        "description": "유튜브 영상 스크립트를 자동으로 생성하는 무료 온라인 도구",
+        "url": "https://youtube-script-wizard.com",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+        }
+    }
+    </script>
+
+    <!-- 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -47,7 +96,7 @@
     <!-- 메인 컨테이너 -->
     <div class="container">
         <!-- 진행 단계 표시 -->
-        <nav class="progress-indicator">
+        <nav class="progress-indicator" aria-label="진행 단계">
             <div class="step active">
                 <div class="step-number">1</div>
                 <span class="step-label">주제 입력</span>
@@ -60,7 +109,7 @@
             <div class="step-connector"></div>
             <div class="step">
                 <div class="step-number">3</div>
-                <span class="step-label">스크립트 생성</span>
+                <span class="step-label">스크립트 작성</span>
             </div>
             <div class="step-connector"></div>
             <div class="step">
@@ -81,10 +130,10 @@
                             <path d="M2 12l10 5 10-5" />
                         </svg>
                     </div>
-                    <span>Script Wizard</span>
+                    <span>스크립트 마법사</span>
                 </div>
-                <h1 class="title">AI로 유튜브 스크립트를<br><span class="highlight">자동으로 생성</span>하세요</h1>
-                <p class="subtitle">주제만 입력하면 완벽한 영상 스크립트가 몇 초 만에 완성됩니다</p>
+                <h1 class="title">유튜브 영상 스크립트를<br><span class="highlight">쉽고 빠르게 만드세요</span></h1>
+                <p class="subtitle">주제만 입력하면 완성도 높은 영상 대본이 몇 초 만에 완성됩니다</p>
             </header>
 
             <!-- 입력 섹션 -->
@@ -93,15 +142,14 @@
                     <div class="input-wrapper">
                         <div class="input-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
-                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                                <line x1="12" y1="19" x2="12" y2="22" />
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                             </svg>
                         </div>
-                        <input type="text" id="topic-input" placeholder="영상 주제를 입력하세요... (예: '초보자를 위한 프로그래밍 입문')"
-                            autocomplete="off">
-                        <button id="generate-btn" class="generate-btn">
-                            <span class="btn-text">생성하기</span>
+                        <input type="text" id="topic-input" placeholder="영상 주제를 입력하세요... (예: 초보자를 위한 주식 투자 입문)"
+                            autocomplete="off" aria-label="영상 주제 입력">
+                        <button id="generate-btn" class="generate-btn" aria-label="스크립트 생성하기">
+                            <span class="btn-text">만들기</span>
                             <div class="btn-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14" />
@@ -115,34 +163,34 @@
                 <!-- 빠른 시작 태그 -->
                 <div class="quick-tags">
                     <span class="tag-label">인기 주제:</span>
-                    <button class="tag" data-topic="초보자를 위한 투자 가이드">💰 투자 가이드</button>
+                    <button class="tag" data-topic="초보자를 위한 주식 투자 가이드">💰 주식 투자</button>
                     <button class="tag" data-topic="건강한 아침 루틴 만들기">🌅 아침 루틴</button>
-                    <button class="tag" data-topic="AI 기술의 미래">🤖 AI 미래</button>
-                    <button class="tag" data-topic="여행 브이로그 팁">✈️ 여행 팁</button>
+                    <button class="tag" data-topic="요즘 뜨는 부업 추천">💼 부업 추천</button>
+                    <button class="tag" data-topic="해외여행 꿀팁 모음">✈️ 여행 꿀팁</button>
                 </div>
             </section>
 
             <!-- 기능 카드 -->
-            <section class="features">
-                <div class="feature-card glass-card">
+            <section class="features" aria-label="주요 기능">
+                <article class="feature-card glass-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                         </svg>
                     </div>
-                    <h3>초고속 생성</h3>
-                    <p>AI가 몇 초 만에 완벽한 스크립트 완성</p>
-                </div>
-                <div class="feature-card glass-card">
+                    <h2>빠른 작성</h2>
+                    <p>주제 입력 후 몇 초 만에 스크립트 완성</p>
+                </article>
+                <article class="feature-card glass-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                         </svg>
                     </div>
-                    <h3>SEO 최적화</h3>
+                    <h2>검색 최적화</h2>
                     <p>조회수를 높이는 키워드 자동 포함</p>
-                </div>
-                <div class="feature-card glass-card">
+                </article>
+                <article class="feature-card glass-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10" />
@@ -151,15 +199,15 @@
                             <line x1="15" y1="9" x2="15.01" y2="9" />
                         </svg>
                     </div>
-                    <h3>맞춤 스타일</h3>
-                    <p>채널 분위기에 맞는 톤 선택 가능</p>
-                </div>
+                    <h2>맞춤 스타일</h2>
+                    <p>채널 분위기에 맞는 말투 선택 가능</p>
+                </article>
             </section>
         </main>
 
         <!-- 푸터 -->
         <footer class="footer">
-            <p>© 2024 Script Wizard. AI 기반 콘텐츠 자동화 플랫폼</p>
+            <p>© 2024 스크립트 마법사. 유튜브 크리에이터를 위한 스크립트 작성 도구</p>
         </footer>
     </div>
 
